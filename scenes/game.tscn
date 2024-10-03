@@ -176,6 +176,8 @@ texture = ExtResource("2_vno8c")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8twc6")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jt0fp"]
+
 [sub_resource type="Animation" id="Animation_ped6g"]
 length = 0.001
 tracks/0/type = "value"
@@ -214,8 +216,6 @@ _data = {
 "move": SubResource("Animation_naduu")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jt0fp"]
-
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -250,15 +250,6 @@ limit_bottom = 530
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Platform" parent="." instance=ExtResource("3_c1ue2")]
-position = Vector2(433, -44)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
-libraries = {
-"": SubResource("AnimationLibrary_pn1sv")
-}
-autoplay = "move"
-
 [node name="Killzone" parent="." instance=ExtResource("5_kl0vw")]
 position = Vector2(479, 532)
 
@@ -283,7 +274,7 @@ position = Vector2(855, 440)
 position = Vector2(248, -23)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("4_nysux")]
-position = Vector2(-88, -56)
+position = Vector2(-88, -57)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("4_nysux")]
 position = Vector2(-177, -41)
@@ -293,8 +284,14 @@ position = Vector2(-224, 88)
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Slime" parent="." instance=ExtResource("6_7l5aw")]
-position = Vector2(336, -32)
+[node name="Platform" parent="Platforms" instance=ExtResource("3_c1ue2")]
+position = Vector2(433, -44)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_pn1sv")
+}
+autoplay = "move"
 
 [node name="Hints" type="Node" parent="."]
 
@@ -351,3 +348,8 @@ theme_override_fonts/font = ExtResource("7_f4a6i")
 theme_override_font_sizes/font_size = 8
 text = "Congratulations!!!"
 horizontal_alignment = 1
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Slime" parent="Enemies" instance=ExtResource("6_7l5aw")]
+position = Vector2(336, -32)
