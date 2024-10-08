@@ -1,19 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://nao6de1dettc"]
+[gd_scene load_steps=5 format=3 uid="uid://nao6de1dettc"]
 
-[ext_resource type="Texture2D" uid="uid://djwlbjev0vkjm" path="res://assets/sprites/shop_anim.png" id="1_bjg0p"]
+[ext_resource type="PackedScene" uid="uid://bqi5xysu2b6og" path="res://scenes/shop.tscn" id="2_6asr3"]
 [ext_resource type="Texture2D" uid="uid://b7341jdi75xo3" path="res://assets/sprites/world_tileset.png" id="2_cve2t"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rii8"]
-texture = ExtResource("1_bjg0p")
-texture_region_size = Vector2i(2, 16)
-0:0/size_in_atlas = Vector2i(59, 8)
-0:0/animation_frame_0/duration = 0.1
-0:0/animation_frame_1/duration = 0.1
-0:0/animation_frame_2/duration = 0.1
-0:0/animation_frame_3/duration = 0.1
-0:0/animation_frame_4/duration = 0.1
-0:0/animation_frame_5/duration = 0.1
-0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_160dk"]
 texture = ExtResource("2_cve2t")
@@ -139,7 +127,6 @@ texture = ExtResource("2_cve2t")
 2:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_4i5be"]
-sources/0 = SubResource("TileSetAtlasSource_8rii8")
 sources/1 = SubResource("TileSetAtlasSource_160dk")
 
 [node name="Village" type="Node2D"]
@@ -150,3 +137,6 @@ position = Vector2(16, -1)
 tile_set = SubResource("TileSet_4i5be")
 format = 2
 layer_0/tile_data = PackedInt32Array(131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0)
+
+[node name="Shop" parent="." instance=ExtResource("2_6asr3")]
+position = Vector2(59, 17)
