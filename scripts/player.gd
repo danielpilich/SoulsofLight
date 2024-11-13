@@ -7,6 +7,10 @@ const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var weapon_sprite: AnimatedSprite2D = $Weapon/AnimatedSprite2D
+@onready var weapon_animation_player: AnimationPlayer = $Weapon/AnimationPlayer
+@onready var weapon: Node2D = $Weapon
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -17,14 +21,30 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Handle attack.
+	if Input.is_action_just_pressed("attack"):
+		weapon_sprite.play("swing")		
+		if weapon.scale.x < 0:
+			weapon_animation_player.play("swing_left")
+		elif weapon.scale.x > 0:
+			weapon_animation_player.play("swing_right")
+
 	# Get the input direction: -1, 0, 1
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	#Flip the Sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
+		weapon_sprite.flip_h = false
+		if weapon.scale.x < 0:
+			weapon_sprite.scale.x *= -1
+			weapon.scale.x *= -1
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		weapon_sprite.flip_h = true
+		if weapon.scale.x > 0:
+			weapon_sprite.scale.x *= -1
+			weapon.scale.x *= -1
 		
 	# Play animations
 	if is_on_floor():
