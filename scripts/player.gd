@@ -23,11 +23,14 @@ func _physics_process(delta):
 
 	# Handle attack.
 	if Input.is_action_just_pressed("attack"):
+		weapon.get_node("CollisionShape2D").disabled = false
 		weapon_sprite.play("swing")		
 		if weapon.scale.x < 0:
 			weapon_animation_player.play("swing_left")
 		elif weapon.scale.x > 0:
 			weapon_animation_player.play("swing_right")
+		await weapon_animation_player.animation_finished
+		weapon.get_node("CollisionShape2D").disabled = true
 
 	# Get the input direction: -1, 0, 1
 	var direction = Input.get_axis("move_left", "move_right")
