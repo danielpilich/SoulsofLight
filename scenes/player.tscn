@@ -296,6 +296,7 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_7w18h")
 
 [node name="Weapon" type="Area2D" parent="."]
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_ohjml")
 

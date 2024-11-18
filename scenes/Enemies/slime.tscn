@@ -47,6 +47,7 @@ size = Vector2(20, 17)
 size = Vector2(10, 12)
 
 [node name="Slime" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
 script = ExtResource("1_xypll")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	pass
 	
 func _on_body_entered(body):
-	print(body)
-	#if body.is_in_group("enemies"):
-	#	body.queue_free()
+	if body.is_in_group("enemies"):
+		body.queue_free()
