@@ -21,8 +21,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Equid/Unequip weapon
+	if Input.is_action_just_pressed("equip_weapon"):
+		weapon.visible = not weapon.visible
+
 	# Handle attack.
-	if Input.is_action_just_pressed("attack"):
+	if weapon.visible == true and Input.is_action_just_pressed("attack"):
 		weapon.get_node("CollisionShape2D").disabled = false
 		weapon_sprite.play("swing")		
 		if weapon.scale.x < 0:
