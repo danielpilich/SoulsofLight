@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://o405mwgv1f3d"]
+
+[ext_resource type="Texture2D" uid="uid://c8lm83alqov3e" path="res://assets/sprites/healthbar_hearts3_empty.png" id="1_n6nbs"]
+[ext_resource type="Texture2D" uid="uid://to1nwuy7oeu3" path="res://assets/sprites/healthbar_hearts3_full.png" id="2_qp3er"]
+
+[node name="Healthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.026
+anchor_top = -0.061
+anchor_right = -0.026
+anchor_bottom = -0.061
+offset_left = 75.952
+offset_top = 67.528
+offset_right = 115.952
+offset_bottom = 79.528
+max_value = 3.0
+texture_under = ExtResource("1_n6nbs")
+texture_progress = ExtResource("2_qp3er")
