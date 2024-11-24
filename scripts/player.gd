@@ -8,9 +8,11 @@ var health = 3
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var weapon_sprite: AnimatedSprite2D = $Weapon/AnimatedSprite2D
-@onready var weapon_animation_player: AnimationPlayer = $Weapon/AnimationPlayer
-@onready var weapon: Node2D = $Weapon
+@onready var weapon_sprite: AnimatedSprite2D = $HitBox/AnimatedSprite2D
+@onready var weapon_animation_player: AnimationPlayer = $HitBox/AnimationPlayer
+@onready var weapon: Node2D = $HitBox
+@onready var health_node: Health = $Health
+
 
 func get_hit():
 	health -= 1
@@ -84,3 +86,12 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+func _on_health_health_depleted() -> void:
+	set_physics_process(false)
+	animated_sprite.play("death")
+	await animated_sprite.animation_finished
+	animated_sprite.frame = 3
+	animated_sprite.pause()

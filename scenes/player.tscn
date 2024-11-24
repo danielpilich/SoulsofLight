@@ -1,10 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://c2l1o1mofjbvg"]
+[gd_scene load_steps=40 format=3 uid="uid://c2l1o1mofjbvg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pfmrb"]
 [ext_resource type="Texture2D" uid="uid://blxka8iudjerb" path="res://assets/sprites/satyr_.png" id="2_4su8p"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_rf2eu"]
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="3_ohjml"]
 [ext_resource type="Texture2D" uid="uid://ik0nghyjrfok" path="res://assets/sprites/axe_ [iron].png" id="3_s0n0r"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="4_3pgkg"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="6_jnvh4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84ge7"]
 atlas = ExtResource("2_4su8p")
@@ -300,20 +302,36 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_ohjml")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon"]
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_jnvh4")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_7w18h")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 0
+script = ExtResource("4_3pgkg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HitBox"]
 libraries = {
 "": SubResource("AnimationLibrary_w3qxb")
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapon"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HitBox"]
 position = Vector2(8, -11)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_4cug1")
+animation = &"swing"
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(9, -11)
 shape = SubResource("RectangleShape2D_yi8d2")
 disabled = true
 
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="body_entered" from="Weapon" to="Weapon" method="_on_body_entered"]

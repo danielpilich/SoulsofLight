@@ -7,11 +7,11 @@ signal max_health_changed(diff: int)
 
 
 @export var max_health: int = 3 : set = set_max_health, get = get_max_health
-@export var invinciblility: bool = false : set = set_invincibility, get = get_invincibility
+@export var invincibility: bool = false : set = set_invincibility, get = get_invincibility
 
 var invincibility_timer: Timer = null
 
-@onready var health: int = max_health
+@onready var health: int = max_health : set = set_health, get = get_health
 
 
 func set_max_health(value: int):
@@ -29,27 +29,35 @@ func get_max_health() -> int:
 	return max_health
 
 func set_invincibility(value: bool):
-	invinciblility = value
+	invincibility = value
 
 func get_invincibility() -> int:
-	return invinciblility
+	return invincibility
 
 func set_temp_invincibility(time: float):
 	if invincibility_timer == null:
 		invincibility_timer = Timer.new()
 		invincibility_timer.one_shot = true
 		add_child(invincibility_timer)
-	
+		invincibility_timer.timeout.connect(_on_invincibility_timer_timeout)
+		
+	invincibility = true  # Enable invincibility
+	invincibility_timer.start(time)  # Start or restart the timer
+	"""
 	if invincibility_timer.timeout.is_connected(set_invincibility):
 		invincibility_timer.timeout.disconnect(set_invincibility)
 	
 	invincibility_timer.set_wait_time(time)
 	invincibility_timer.timeout.connect(set_invincibility.bind(false))
-	invinciblility = true
+	invincibility = true
 	invincibility_timer.start()
+	"""
+
+func _on_invincibility_timer_timeout() -> void:
+	invincibility = false  # Disable invincibility
 
 func set_health(value: int):
-	if value < health and invinciblility:
+	if value < health and invincibility:
 		return
 	
 	var clamped_value = clampi(value, 0, max_health)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=18 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cs7w20yueg02o" path="res://scenes/killzone.tscn" id="5_kl0vw"]
 [ext_resource type="PackedScene" uid="uid://n7otpxjkcupp" path="res://scenes/Enemies/slime.tscn" id="6_7l5aw"]
 [ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="7_f4a6i"]
+[ext_resource type="PackedScene" uid="uid://bqcvttgtgnrs0" path="res://scenes/Enemies/slime_purple.tscn" id="10_nnnh3"]
+[ext_resource type="PackedScene" uid="uid://o405mwgv1f3d" path="res://scenes/healthbar.tscn" id="11_u0bvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8twc6"]
 texture = ExtResource("2_vno8c")
@@ -354,3 +356,19 @@ horizontal_alignment = 1
 
 [node name="Slime" parent="Enemies" instance=ExtResource("6_7l5aw")]
 position = Vector2(350, -32)
+
+[node name="Slime_purple" parent="Enemies" instance=ExtResource("10_nnnh3")]
+position = Vector2(-11, -25)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="Healthbar" parent="CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("11_u0bvi")]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 14.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+character = NodePath("../../Player")

@@ -6,9 +6,9 @@ signal received_damage(damage: int)
 @export var health: Health
 
 func _ready():
-	connect("area_entered", _on_are_entered)
+	connect("area_entered", _on_area_entered)
 
-func _on_are_entered(hitbox: HitBox) -> void:
-	if hitbox != null:
+func _on_area_entered(hitbox: HitBox) -> void:
+	if hitbox != null and not health.invincibility:
 		health.health -= hitbox.damage
 		received_damage.emit(hitbox.damage)
