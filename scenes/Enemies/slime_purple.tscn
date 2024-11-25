@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqcvttgtgnrs0"]
+[gd_scene load_steps=16 format=3 uid="uid://bqcvttgtgnrs0"]
 
 [ext_resource type="Script" path="res://scripts/slime_purple.gd" id="1_lwc71"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_hhl7q"]
@@ -22,6 +22,22 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("3_k54dr")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucher"]
+atlas = ExtResource("3_k54dr")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0jdc"]
+atlas = ExtResource("3_k54dr")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn2sm"]
+atlas = ExtResource("3_k54dr")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjjpf"]
+atlas = ExtResource("3_k54dr")
+region = Rect2(72, 48, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwdld"]
 animations = [{
 "frames": [{
@@ -40,6 +56,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucher")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0jdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn2sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjjpf")
+}],
+"loop": false,
+"name": &"slime_hit",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwjb"]
@@ -54,9 +87,8 @@ script = ExtResource("2_hhl7q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_dwdld")
+animation = &"slime_hit"
 autoplay = "default"
-frame = 2
-frame_progress = 0.837301
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
@@ -86,3 +118,4 @@ shape = SubResource("RectangleShape2D_3pwjb")
 
 [connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
+[connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
