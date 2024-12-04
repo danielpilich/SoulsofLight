@@ -513,7 +513,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f87us"]
-size = Vector2(16, 29)
+size = Vector2(14, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s031"]
 size = Vector2(16, 29)
@@ -673,7 +673,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_f87us")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
@@ -683,7 +683,7 @@ script = ExtResource("6_jnvh4")
 health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -15)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_0s031")
 
 [node name="HitBox" type="Area2D" parent="."]
