@@ -45,14 +45,14 @@ func _physics_process(delta):
 	
 	#Flip the Sprite
 	if direction > 0:
-		sprite_2d.flip_h = false
-		weapon_sprite.flip_h = false
+		sprite_2d.scale.x = 0.75
+		#weapon_sprite.flip_h = false
 		if weapon.scale.x < 0:
 			weapon_sprite.scale.x *= -1
 			weapon.scale.x *= -1
 	elif direction < 0:
-		sprite_2d.flip_h = true
-		weapon_sprite.flip_h = true
+		sprite_2d.scale.x = -0.75
+		#weapon_sprite.flip_h = true
 		if weapon.scale.x > 0:
 			weapon_sprite.scale.x *= -1
 			weapon.scale.x *= -1

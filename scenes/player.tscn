@@ -600,9 +600,11 @@ script = ExtResource("8_2uecy")
 script = ExtResource("9_8i2vm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -30)
+position = Vector2(0, -29.5391)
+rotation = -0.00459668
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_swtjt")
+offset = Vector2(5.3361, -0.590061)
 hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -612,7 +614,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -14.5)
+position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_f87us")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
@@ -622,7 +624,7 @@ script = ExtResource("6_jnvh4")
 health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-1, -14.5)
+position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_0s031")
 
 [node name="HitBox" type="Area2D" parent="."]
