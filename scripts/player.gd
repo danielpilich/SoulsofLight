@@ -29,30 +29,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("equip_weapon"):
 		weapon.visible = not weapon.visible
 
-	# Handle attack.
-	if weapon.visible == true and Input.is_action_just_pressed("attack"):
-		weapon.get_node("CollisionShape2D").disabled = false
-		weapon_sprite.play("swing")		
-		if weapon.scale.x < 0:
-			weapon_animation_player.play("swing_left")
-		elif weapon.scale.x > 0:
-			weapon_animation_player.play("swing_right")
-		await weapon_animation_player.animation_finished
-		weapon.get_node("CollisionShape2D").disabled = true
-
 	# Get the input direction: -1, 0, 1
 	direction = Input.get_axis("move_left", "move_right")
 	
 	#Flip the Sprite
 	if direction > 0:
 		sprite_2d.scale.x = 0.75
-		#weapon_sprite.flip_h = false
 		if weapon.scale.x < 0:
 			weapon_sprite.scale.x *= -1
 			weapon.scale.x *= -1
 	elif direction < 0:
 		sprite_2d.scale.x = -0.75
-		#weapon_sprite.flip_h = true
 		if weapon.scale.x > 0:
 			weapon_sprite.scale.x *= -1
 			weapon.scale.x *= -1
