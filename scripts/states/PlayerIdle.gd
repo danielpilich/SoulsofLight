@@ -22,3 +22,7 @@ func Update(_delta: float):
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	emit_signal("Transitioned", self, "hit")
+
+
+func _on_health_health_depleted() -> void:
+	emit_signal("Transitioned", self, "death")

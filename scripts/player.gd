@@ -66,17 +66,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
-
-func _on_health_health_depleted() -> void:
-	"""
-	set_physics_process(false)
-	animated_sprite.play("death")
-	await animated_sprite.animation_finished
-	animated_sprite.frame = 3
-	animated_sprite.pause()
-	"""
-	get_tree().reload_current_scene()
-
 func _on_hurt_box_received_damage(damage: int) -> void:
 	health_node.set_temp_invincibility(2)

@@ -10,7 +10,7 @@ var anim_fini: bool = false
 func Enter() -> void:
 	anim_fini = false
 	if animation_player:
-		animation_player.play("attack1")
+		animation_player.play("attack2")
 		await animation_player.animation_finished
 		anim_fini = true
 

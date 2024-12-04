@@ -22,5 +22,8 @@ func Update(_delta: float):
 	if Input.is_action_just_pressed("attack"):
 		emit_signal("Transitioned", self, "attack")
 
+func _on_health_health_depleted() -> void:
+	emit_signal("Transitioned", self, "death")
+
 func _on_hurt_box_received_damage(damage: int) -> void:
 	emit_signal("Transitioned", self, "hit")
