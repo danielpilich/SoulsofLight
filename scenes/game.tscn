@@ -358,7 +358,7 @@ horizontal_alignment = 1
 position = Vector2(350, -32)
 
 [node name="Slime_purple" parent="Enemies" instance=ExtResource("10_nnnh3")]
-position = Vector2(-11, -25)
+position = Vector2(-11, -24)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(4, 4)

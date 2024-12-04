@@ -5,13 +5,15 @@ const JUMP_VELOCITY = -300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var direction : float
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var weapon_sprite: AnimatedSprite2D = $HitBox/AnimatedSprite2D
 @onready var weapon_animation_player: AnimationPlayer = $HitBox/AnimationPlayer
 @onready var weapon: Node2D = $HitBox
 @onready var health_node: Health = $Health
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func _physics_process(delta):
@@ -39,30 +41,22 @@ func _physics_process(delta):
 		weapon.get_node("CollisionShape2D").disabled = true
 
 	# Get the input direction: -1, 0, 1
-	var direction = Input.get_axis("move_left", "move_right")
+	direction = Input.get_axis("move_left", "move_right")
 	
 	#Flip the Sprite
 	if direction > 0:
-		animated_sprite.flip_h = false
+		sprite_2d.flip_h = false
 		weapon_sprite.flip_h = false
 		if weapon.scale.x < 0:
 			weapon_sprite.scale.x *= -1
 			weapon.scale.x *= -1
 	elif direction < 0:
-		animated_sprite.flip_h = true
+		sprite_2d.flip_h = true
 		weapon_sprite.flip_h = true
 		if weapon.scale.x > 0:
 			weapon_sprite.scale.x *= -1
 			weapon.scale.x *= -1
 		
-	# Play animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
-	else:
-		animated_sprite.play("jump")
 
 	#Apply movement
 	if direction:
@@ -75,17 +69,14 @@ func _physics_process(delta):
 
 
 func _on_health_health_depleted() -> void:
+	"""
 	set_physics_process(false)
 	animated_sprite.play("death")
 	await animated_sprite.animation_finished
 	animated_sprite.frame = 3
 	animated_sprite.pause()
+	"""
 	get_tree().reload_current_scene()
 
 func _on_hurt_box_received_damage(damage: int) -> void:
-	health_node.set_temp_invincibility(1)
-	if health_node.health > 0:
-		animated_sprite.play("hit")
-		set_physics_process(false)
-		await animated_sprite.animation_finished
-		set_physics_process(true)
+	health_node.set_temp_invincibility(2)
