@@ -1,7 +1,6 @@
 extends State
 class_name PlayerHit
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var next_state_name: String = "idle"

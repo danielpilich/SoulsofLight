@@ -726,21 +726,27 @@ character = NodePath("..")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_4f10o")
+can_move = null
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("5_6qp8c")
+can_move = null
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_e15yq")
+can_move = null
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("7_6qwfk")
+can_move = null
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("8_2uecy")
+can_move = null
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("9_8i2vm")
+can_move = null
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("10_5tboc")
@@ -748,6 +754,8 @@ can_move = false
 
 [node name="Ground" type="Node" parent="StateMachine"]
 script = ExtResource("11_xckp4")
+jump_velocity = null
+can_move = null
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("12_5nsbk")

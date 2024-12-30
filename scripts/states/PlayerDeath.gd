@@ -1,7 +1,6 @@
 extends State
 class_name PlayerDeath
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var anim_fini: bool = false

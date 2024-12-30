@@ -1,7 +1,6 @@
 extends State
 class_name PlayerRun
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 

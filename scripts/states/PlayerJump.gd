@@ -1,9 +1,7 @@
 extends State
 class_name PlayerJump
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-
 
 func Enter() -> void:
 	if animation_player:

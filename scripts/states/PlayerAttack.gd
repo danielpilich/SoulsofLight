@@ -1,7 +1,6 @@
 extends State
 class_name PlayerAttack
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var collision_shape_2d: CollisionShape2D = $"../../HitBox/CollisionShape2D"
 

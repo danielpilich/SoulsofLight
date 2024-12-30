@@ -1,6 +1,8 @@
 extends Node
+class_name StateMachine
 
 @export var initial_state : State
+@export var character : CharacterBody2D
 
 var current_state : State
 var states : Dictionary = {}
@@ -10,6 +12,7 @@ func _ready() -> void:
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
+			child.player = character
 		
 		if initial_state:
 			initial_state.Enter()
@@ -37,3 +40,6 @@ func on_child_transition(state, new_state_name):
 	new_state.Enter()
 	
 	current_state = new_state
+
+func check_if_can_move():
+	return current_state.can_move

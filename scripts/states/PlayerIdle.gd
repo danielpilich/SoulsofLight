@@ -1,7 +1,6 @@
 extends State
 class_name PlayerIdle
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var health: Health = $"../../Health"
 
