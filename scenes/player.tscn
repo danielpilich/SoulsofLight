@@ -713,6 +713,7 @@ size = Vector2(28, 26)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_pfmrb")
 
