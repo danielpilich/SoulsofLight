@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://c2l1o1mofjbvg"]
+[gd_scene load_steps=84 format=3 uid="uid://c2l1o1mofjbvg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pfmrb"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_rf2eu"]
@@ -1149,10 +1149,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qauw"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5v5qj"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kkigu"]
 states/attack1/node = SubResource("AnimationNodeAnimation_oxojo")
 states/attack1/position = Vector2(427, 201.746)
@@ -1167,12 +1163,12 @@ states/death/position = Vector2(900, 12.4)
 states/fall/node = SubResource("AnimationNodeAnimation_fagls")
 states/fall/position = Vector2(567, -21.2432)
 states/hit/node = SubResource("AnimationNodeAnimation_niwka")
-states/hit/position = Vector2(567, 100)
+states/hit/position = Vector2(641, 100)
 states/jump/node = SubResource("AnimationNodeAnimation_kmgdp")
 states/jump/position = Vector2(427, -21.2432)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_5m8hg")
 states/move/position = Vector2(427, 100)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_h6cui"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_p3bt8"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_l53ac"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_vn74f"), "move", "fall", SubResource("AnimationNodeStateMachineTransition_y1pjq"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_nkclb"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_epgp7"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_vhmtg"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_m7cje"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_qwnsu"), "crouch", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_ao63p"), "crouch_attack", "crouch", SubResource("AnimationNodeStateMachineTransition_mwqvd"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_8qauw"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_5v5qj")]
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_h6cui"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_p3bt8"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_l53ac"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_vn74f"), "move", "fall", SubResource("AnimationNodeStateMachineTransition_y1pjq"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_nkclb"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_epgp7"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_vhmtg"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_m7cje"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_qwnsu"), "crouch", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_ao63p"), "crouch_attack", "crouch", SubResource("AnimationNodeStateMachineTransition_mwqvd"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_8qauw")]
 graph_offset = Vector2(0, 4.84697)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f87us"]
@@ -1291,5 +1287,6 @@ state_machine = NodePath("../StateMachine")
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/Death" method="_on_animation_tree_animation_finished"]
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
+[connection signal="received_damage" from="HurtBox" to="StateMachine/Attack" method="_on_hurt_box_received_damage"]
 [connection signal="received_damage" from="HurtBox" to="StateMachine/Ground" method="_on_hurt_box_received_damage"]
 [connection signal="received_damage" from="HurtBox" to="StateMachine/Air" method="_on_hurt_box_received_damage"]

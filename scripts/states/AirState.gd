@@ -37,4 +37,4 @@ func _on_health_health_depleted() -> void:
 
 func _on_hurt_box_received_damage(damage: int) -> void:
 	if !is_dead:
-		playback.travel("hit")
+		emit_signal("Transitioned", self, "hit")

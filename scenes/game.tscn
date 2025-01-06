@@ -2590,5 +2590,5 @@ size_flags_vertical = 0
 character = NodePath("../../Player")
 
 [node name="Slime" parent="." instance=ExtResource("14_2mk56")]
-position = Vector2(528, -66)
+position = Vector2(531, -13)
 scale = Vector2(2, 2)

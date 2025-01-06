@@ -85,7 +85,7 @@ func update_animation():
 	animation_tree.set("parameters/crouch/blend_position", direction)
 
 func _on_hurt_box_received_damage(damage: int) -> void:
-	health_node.set_temp_invincibility(2)
+	health_node.set_temp_invincibility(2.5)
 
 
 func _on_health_health_depleted() -> void:
