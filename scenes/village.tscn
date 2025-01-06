@@ -1,0 +1,250 @@
+[gd_scene load_steps=9 format=3 uid="uid://nao6de1dettc"]
+
+[ext_resource type="PackedScene" uid="uid://bqi5xysu2b6og" path="res://scenes/shop.tscn" id="2_6asr3"]
+[ext_resource type="Texture2D" uid="uid://b7341jdi75xo3" path="res://assets/sprites/world_tileset.png" id="2_cve2t"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="3_fnpol"]
+[ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="4_jcyjn"]
+[ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="5_3dcft"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_160dk"]
+texture = ExtResource("2_cve2t")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+2:4/size_in_atlas = Vector2i(3, 3)
+2:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4i5be"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_160dk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swhdn"]
+size = Vector2(61, 30)
+
+[node name="Village" type="Node2D"]
+position = Vector2(16, -15)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(16, -1)
+tile_set = SubResource("TileSet_4i5be")
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0, 131067, 1, 1, 65531, 65537, 0, -5, 65537, 0, -65541, 65537, 0, -131077, 65537, 0, -196613, 65537, 0, -262149, 65537, 0, -327685, 65537, 0, -393221, 65537, 0, -458757, 65537, 0, 65556, 1, 1, 20, 65537, 0, -65516, 65537, 0, -131052, 65537, 0, -196588, 65537, 0, -262124, 65537, 0, -327660, 65537, 0, -393196, 65537, 0, -458732, 65537, 0, -524268, 65537, 0, -524293, 65537, 0, -589829, 65537, 0, -655365, 65537, 0, -589804, 65537, 0, -655340, 65537, 0, -720876, 65537, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_jcyjn")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, -41)
+zoom = Vector2(4, 4)
+limit_right = 944
+limit_bottom = 530
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Shop" parent="." instance=ExtResource("2_6asr3")]
+position = Vector2(75, 15)
+script = ExtResource("3_fnpol")
+
+[node name="Area2D" type="Area2D" parent="Shop"]
+position = Vector2(73, -27)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop/Area2D"]
+position = Vector2(-73, 12)
+shape = SubResource("RectangleShape2D_swhdn")
+
+[node name="ShopLabel" type="Label" parent="Shop/Area2D"]
+visible = false
+offset_left = -112.0
+offset_top = -19.0
+offset_right = -31.0
+offset_bottom = -10.0
+theme_override_fonts/font = ExtResource("5_3dcft")
+theme_override_font_sizes/font_size = 8
+text = "[E]open shop"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Shop/Area2D"]
+
+[node name="ShopPanel" type="Panel" parent="Shop/Area2D/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -88.0
+offset_right = 80.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/Area2D/CanvasLayer/ShopPanel"]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 176.0
+
+[node name="Item" type="Button" parent="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer"]
+layout_mode = 2
+text = "Item 1"
+
+[node name="Item2" type="Button" parent="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer"]
+layout_mode = 2
+text = "Item 2"
+
+[node name="Item3" type="Button" parent="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer"]
+layout_mode = 2
+text = "Item 3"
+
+[node name="Item4" type="Button" parent="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer"]
+layout_mode = 2
+text = "Item 4"
+
+[connection signal="body_entered" from="Shop/Area2D" to="Shop" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Shop/Area2D" to="Shop" method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer/Item" to="Shop" method="_on_item_pressed"]
+[connection signal="pressed" from="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer/Item2" to="Shop" method="_on_item_2_pressed"]
+[connection signal="pressed" from="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer/Item3" to="Shop" method="_on_item_3_pressed"]
+[connection signal="pressed" from="Shop/Area2D/CanvasLayer/ShopPanel/VBoxContainer/Item4" to="Shop" method="_on_item_4_pressed"]

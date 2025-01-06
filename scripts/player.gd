@@ -52,5 +52,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func player_shop_method():
+	pass
+
 func _on_hurt_box_received_damage(damage: int) -> void:
 	health_node.set_temp_invincibility(2)
