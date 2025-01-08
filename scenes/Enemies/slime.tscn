@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://n7otpxjkcupp"]
+[gd_scene load_steps=22 format=3 uid="uid://n7otpxjkcupp"]
 
 [ext_resource type="Texture2D" uid="uid://qxce1pcexf6f" path="res://assets/sprites/slime_green.png" id="1_b2g46"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_xypll"]
@@ -21,6 +21,30 @@ region = Rect2(48, 24, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn2sn"]
 atlas = ExtResource("1_b2g46")
 region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8f27"]
+atlas = ExtResource("1_b2g46")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6s7m"]
+atlas = ExtResource("1_b2g46")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgmbf"]
+atlas = ExtResource("1_b2g46")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x1ru"]
+atlas = ExtResource("1_b2g46")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yciti"]
+atlas = ExtResource("1_b2g46")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb3nw"]
+atlas = ExtResource("1_b2g46")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5tja"]
 atlas = ExtResource("1_b2g46")
@@ -59,6 +83,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_u8f27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6s7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgmbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6s7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yciti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb3nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yciti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8f27")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i5tja")
 }, {
 "duration": 1.0,
@@ -79,6 +138,7 @@ animations = [{
 size = Vector2(14, 16)
 
 [node name="Slime" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_xypll")
 
