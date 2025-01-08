@@ -8,6 +8,7 @@ signal max_health_changed(diff: int)
 
 @export var max_health: int = 3 : set = set_max_health, get = get_max_health
 @export var invincibility: bool = false : set = set_invincibility, get = get_invincibility
+@export var hurtbox_collision: CollisionShape2D
 
 var invincibility_timer: Timer = null
 
@@ -42,6 +43,7 @@ func set_temp_invincibility(time: float):
 		invincibility_timer.timeout.connect(_on_invincibility_timer_timeout)
 		
 	invincibility = true  # Enable invincibility
+	hurtbox_collision.disabled = true
 	invincibility_timer.start(time)  # Start or restart the timer
 	"""
 	if invincibility_timer.timeout.is_connected(set_invincibility):
@@ -55,6 +57,7 @@ func set_temp_invincibility(time: float):
 
 func _on_invincibility_timer_timeout() -> void:
 	invincibility = false  # Disable invincibility
+	hurtbox_collision.disabled = false
 
 func set_health(value: int):
 	if value < health and invincibility:

@@ -1,6 +1,12 @@
 extends Node
 class_name State
 
+@export var can_move : bool = true
+
+var player: CharacterBody2D
+var playback: AnimationNodeStateMachinePlayback 
+var is_dead: bool = false
+
 signal Transitioned
 
 func Enter():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=27 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://o0ol2gutvxlx" path="res://assets/sprites/map/Back_1_2.png" id="10_dsvo5"]
 [ext_resource type="Texture2D" uid="uid://x843s1bnlxuw" path="res://assets/sprites/map/tree.png" id="11_6m40u"]
 [ext_resource type="PackedScene" uid="uid://ch5v1qxo0hqif" path="res://scenes/healthbar.tscn" id="11_u0bvi"]
+[ext_resource type="PackedScene" uid="uid://n7otpxjkcupp" path="res://scenes/Enemies/slime.tscn" id="14_2mk56"]
+[ext_resource type="PackedScene" uid="uid://bqcvttgtgnrs0" path="res://scenes/Enemies/slime_purple.tscn" id="15_w3nf5"]
 [ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="14_rsun0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1o82"]
@@ -2589,6 +2591,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 character = NodePath("../../Player")
 
+[node name="Slime" parent="." instance=ExtResource("14_2mk56")]
+position = Vector2(531, -13)
+scale = Vector2(2, 2)
+
+[node name="Slime_purple" parent="." instance=ExtResource("15_w3nf5")]
+position = Vector2(568, -13)
+scale = Vector2(2, 2)
 [node name="NextWave" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0

@@ -1,19 +1,12 @@
 extends State
-class_name PlayerDeath
+class_name PlayerDeathState
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
-var anim_fini: bool = false
-
 func Enter() -> void:	
-	anim_fini = false
-	if animation_player:
-		animation_player.play("death")
-		await animation_player.animation_finished
-		anim_fini = true
+	playback.travel("death")
 
-func Update(_delta: float):
-	if anim_fini == true:
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "death":
 		get_tree().reload_current_scene()
 		queue_free()

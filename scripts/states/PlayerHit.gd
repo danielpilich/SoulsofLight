@@ -1,35 +1,16 @@
 extends State
-class_name PlayerHit
+class_name PlayerHitState
 
-@onready var player: CharacterBody2D = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
-var next_state_name: String = "idle"
-
 func Enter() -> void:
-	if animation_player:
-		animation_player.play("hit")
-		animation_player.animation_finished.connect(_on_animation_finished)
+	playback.travel("hit")
 
-func Exit() -> void:
-	determine_next_state()
-	
-	if animation_player:
-		animation_player.animation_finished.disconnect(_on_animation_finished)
-		print("loop done")
-
-func Update(_delta: float):
-	pass
-
-func _on_animation_finished(anim_name: String):
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hit":
-		emit_signal("Transitioned", self, next_state_name)
-
-func determine_next_state():
-	if player.is_on_floor():
-		if player.direction != 0:
-			next_state_name = "run"
+		if player.is_on_floor():
+			emit_signal("Transitioned", self, "ground")
 		else:
-			next_state_name = "idle"
-	else:
-		next_state_name = "fall"
+			emit_signal("Transitioned", self, "air")
+	if anim_name == "hit_crouched":
+		emit_signal("Transitioned", self, "crouch")

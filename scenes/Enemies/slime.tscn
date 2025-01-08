@@ -142,8 +142,10 @@ scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_xypll")
 
-[node name="Health" type="Node" parent="."]
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
 script = ExtResource("2_vpd7w")
+max_health = 100
+hurtbox_collision = NodePath("../HurtBox/CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
