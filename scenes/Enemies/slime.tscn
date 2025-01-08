@@ -144,13 +144,13 @@ script = ExtResource("1_xypll")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
 script = ExtResource("2_vpd7w")
-max_health = 100
+max_health = 2
 hurtbox_collision = NodePath("../HurtBox/CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_7cxxf")
-animation = &"slime_hit"
+animation = &"jump"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

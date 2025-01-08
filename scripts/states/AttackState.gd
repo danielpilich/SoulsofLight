@@ -19,15 +19,15 @@ func Update(_delta: float):
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack1":
 		hitbox.disabled = true
-		if timer.is_stopped():
-			playback.travel("move")
-			emit_signal("Transitioned", self, "ground")
-		else:
-			hitbox.disabled = false
-			playback.travel("attack2") 
-	if anim_name == "attack2":
-		hitbox.disabled = true
+		#if timer.is_stopped():
+		playback.travel("move")
 		emit_signal("Transitioned", self, "ground")
+		#else:
+			#hitbox.disabled = false
+			#playback.travel("attack2") 
+	#if anim_name == "attack2":
+		#hitbox.disabled = true
+		#emit_signal("Transitioned", self, "ground")
 	if anim_name == "crouch_attack":
 		hitbox.disabled = true
 		emit_signal("Transitioned", self, "crouch")

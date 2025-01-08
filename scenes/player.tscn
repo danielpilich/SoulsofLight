@@ -1134,11 +1134,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nkclb"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_epgp7"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vhmtg"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m7cje"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qwnsu"]
 
@@ -1149,6 +1145,10 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qauw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m7cje"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_epgp7"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kkigu"]
 states/attack1/node = SubResource("AnimationNodeAnimation_oxojo")
@@ -1169,8 +1169,8 @@ states/jump/node = SubResource("AnimationNodeAnimation_kmgdp")
 states/jump/position = Vector2(427, -21.2432)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_5m8hg")
 states/move/position = Vector2(427, 100)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_h6cui"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_p3bt8"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_l53ac"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_vn74f"), "move", "fall", SubResource("AnimationNodeStateMachineTransition_y1pjq"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_nkclb"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_epgp7"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_vhmtg"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_m7cje"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_qwnsu"), "crouch", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_ao63p"), "crouch_attack", "crouch", SubResource("AnimationNodeStateMachineTransition_mwqvd"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_8qauw")]
-graph_offset = Vector2(0, 4.84697)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_h6cui"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_p3bt8"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_l53ac"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_vn74f"), "move", "fall", SubResource("AnimationNodeStateMachineTransition_y1pjq"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_nkclb"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_vhmtg"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_qwnsu"), "crouch", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_ao63p"), "crouch_attack", "crouch", SubResource("AnimationNodeStateMachineTransition_mwqvd"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_8qauw"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_m7cje"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_epgp7")]
+graph_offset = Vector2(-633.901, 39.1948)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f87us"]
 size = Vector2(14, 29)
@@ -1272,6 +1272,7 @@ shape = SubResource("RectangleShape2D_yi8d2")
 disabled = true
 
 [node name="StateDebug" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+visible = false
 offset_left = -32.0
 offset_top = -44.0
 offset_right = 101.0
