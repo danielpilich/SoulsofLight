@@ -4,6 +4,7 @@ class_name AttackState
 @onready var hitbox: CollisionShape2D = $"../../HitBox/CollisionShape2D"
 @onready var timer: Timer = $Timer
 
+var switch: bool = false
 
 func Enter() -> void:
 	hitbox.disabled = false
@@ -30,9 +31,12 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "crouch_attack":
 		hitbox.disabled = true
 		emit_signal("Transitioned", self, "crouch")
+	else:
+		hitbox.disabled = true
 
 func _on_health_health_depleted() -> void:
 	emit_signal("Transitioned", self, "death")
 
 func _on_hurt_box_received_damage(damage: int) -> void:
+	timer.stop()
 	emit_signal("Transitioned", self, "hit")

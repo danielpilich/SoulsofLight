@@ -21,11 +21,10 @@ func _on_area_exited(hitbox: HitBox):
 		current_hitbox = null
 
 func apply_damage():
-	if current_hitbox.collision_shape.disabled == true:
-		return
+	#if current_hitbox.collision_shape.disabled == true:
+		#return
 	
-	if current_hitbox != null and !health.invincibility:
-		print("damage")
+	if !health.invincibility:
 		health.health -= current_hitbox.damage
 		received_damage.emit(current_hitbox.damage)
 	
@@ -34,5 +33,4 @@ func apply_damage():
 
 func _on_invincibility_ended():
 	if current_hitbox != null:
-		print("damage 2")
 		apply_damage()

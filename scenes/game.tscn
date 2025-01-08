@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=27 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://x843s1bnlxuw" path="res://assets/sprites/map/tree.png" id="11_6m40u"]
 [ext_resource type="PackedScene" uid="uid://ch5v1qxo0hqif" path="res://scenes/healthbar.tscn" id="11_u0bvi"]
 [ext_resource type="PackedScene" uid="uid://n7otpxjkcupp" path="res://scenes/Enemies/slime.tscn" id="14_2mk56"]
+[ext_resource type="PackedScene" uid="uid://bqcvttgtgnrs0" path="res://scenes/Enemies/slime_purple.tscn" id="15_w3nf5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1o82"]
 texture = ExtResource("4_jh5fu")
@@ -2591,4 +2592,8 @@ character = NodePath("../../Player")
 
 [node name="Slime" parent="." instance=ExtResource("14_2mk56")]
 position = Vector2(531, -13)
+scale = Vector2(2, 2)
+
+[node name="Slime_purple" parent="." instance=ExtResource("15_w3nf5")]
+position = Vector2(568, -13)
 scale = Vector2(2, 2)

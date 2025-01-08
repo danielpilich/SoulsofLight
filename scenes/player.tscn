@@ -991,6 +991,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_sbv5k"]
 resource_name = "wall_slide"
 length = 0.3
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1186,8 +1187,10 @@ scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_pfmrb")
 
-[node name="Health" type="Node" parent="."]
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
 script = ExtResource("2_rf2eu")
+max_health = 5
+hurtbox_collision = NodePath("../HurtBox/CollisionShape2D")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_tree", "character")]
 script = ExtResource("3_pjar5")
