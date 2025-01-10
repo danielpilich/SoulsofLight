@@ -138,6 +138,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordSwingSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("32_lgfko")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_nwe64"]
 resource_name = "attack2"
@@ -191,6 +206,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordSwingSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("32_lgfko")
+}],
+"times": PackedFloat32Array(0.0769231)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_rvb0s"]
 resource_name = "between_jump_fall"
@@ -350,6 +380,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordSwingSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("32_lgfko")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_18uxd"]
 resource_name = "crouch_walk"
@@ -1306,7 +1351,6 @@ script = ExtResource("27_g3hre")
 state_machine = NodePath("../StateMachine")
 
 [node name="SwordSwingSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("32_lgfko")
 bus = &"SFX"
 
 [node name="StepsSound" type="AudioStreamPlayer2D" parent="."]

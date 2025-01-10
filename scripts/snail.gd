@@ -12,7 +12,6 @@ var direction: Vector2 = Vector2.LEFT
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-
 func _ready():
 	animation_tree.active = true
 

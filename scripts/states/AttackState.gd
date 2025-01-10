@@ -8,8 +8,7 @@ class_name AttackState
 var anim: String = "attack1"
 var switch: bool = false
 
-func Enter() -> void:	
-	sword_swing.play()
+func Enter() -> void:
 	hitbox.disabled = false
 	timer.start()
 

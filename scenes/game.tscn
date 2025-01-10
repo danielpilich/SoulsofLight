@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=29 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://n7otpxjkcupp" path="res://scenes/Enemies/slime.tscn" id="14_2mk56"]
 [ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="14_rsun0"]
 [ext_resource type="PackedScene" uid="uid://1fs8hta76cya" path="res://scenes/Enemies/snail.tscn" id="16_po5nd"]
-[ext_resource type="PackedScene" uid="uid://0vrbu2aerf3n" path="res://scenes/Enemies/small_bee.tscn" id="17_gjnp6"]
 [ext_resource type="AudioStream" uid="uid://dt1ebwn4twfs3" path="res://assets/music/game_music.mp3" id="18_d5vaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1o82"]
@@ -2563,6 +2562,14 @@ layer_8/tile_data = PackedInt32Array(14, 1, 17, 65550, 1, 18, 131086, 1, 19, -65
 [node name="Player" parent="." instance=ExtResource("1_dgfp1")]
 position = Vector2(-5, 1)
 
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(1, -35)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("18_d5vaj")
+autoplay = true
+max_distance = 1000.0
+bus = &"Music"
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -35)
 zoom = Vector2(2.2, 2.2)
@@ -2624,10 +2631,14 @@ horizontal_alignment = 2
 
 [node name="Slime" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_2mk56")]
 position = Vector2(531, -13)
+collision_layer = 2
+collision_mask = 1
 player = NodePath("../Player")
 
 [node name="Slime2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_2mk56")]
 position = Vector2(531, -57)
+collision_layer = 2
+collision_mask = 1
 player = NodePath("../Player")
 
 [node name="Enemy" type="Node2D" parent="."]
@@ -2644,14 +2655,5 @@ autostart = true
 
 [node name="Snail" parent="." instance=ExtResource("16_po5nd")]
 position = Vector2(899, -13)
-
-[node name="Bee" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_gjnp6")]
-position = Vector2(1862, -93)
-player = NodePath("../Player")
-
-[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("18_d5vaj")
-autoplay = true
-bus = &"Music"
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
