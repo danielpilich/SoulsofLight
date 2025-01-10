@@ -2,6 +2,10 @@ extends State
 
 class_name GroundState
 
+@onready var left_step: AudioStreamPlayer2D = $"../../LeftStep"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var animation_tree: AnimationTree = $"../../AnimationTree"
+
 @export var jump_velocity = -300.0
 
 func Update(_delta: float):

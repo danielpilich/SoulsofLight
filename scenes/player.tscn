@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://c2l1o1mofjbvg"]
+[gd_scene load_steps=87 format=3 uid="uid://c2l1o1mofjbvg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pfmrb"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_rf2eu"]
@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cwwdbsb02m3pe" path="res://assets/sprites/_Attack2NoMovement.png" id="15_v1t1g"]
 [ext_resource type="Texture2D" uid="uid://batblke5n8w4n" path="res://assets/sprites/_DeathNoMovement.png" id="18_y0iuh"]
 [ext_resource type="Texture2D" uid="uid://d4mko7b188exe" path="res://assets/sprites/_Roll.png" id="19_fy6yu"]
+[ext_resource type="AudioStream" uid="uid://idfc1vabbxhj" path="res://assets/sounds/step1.wav" id="24_6l5kl"]
 [ext_resource type="Texture2D" uid="uid://bb8ahujvha80g" path="res://assets/sprites/_JumpFallInbetween.png" id="24_hn078"]
 [ext_resource type="Texture2D" uid="uid://wmljufcxhxf3" path="res://assets/sprites/_CrouchFull.png" id="24_p335y"]
+[ext_resource type="AudioStream" uid="uid://y48ovu0e2sek" path="res://assets/sounds/step2.wav" id="25_gtn34"]
 [ext_resource type="Texture2D" uid="uid://bisn63lr2au1s" path="res://assets/sprites/_CrouchWalk.png" id="25_sfoyu"]
 [ext_resource type="Texture2D" uid="uid://n1oh1n2f15sm" path="res://assets/sprites/_CrouchAttack.png" id="26_rdaaw"]
 [ext_resource type="Script" path="res://scripts/state_debug.gd" id="27_g3hre"]
@@ -30,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://comko0yik24kj" path="res://assets/sprites/_WallClimb.png" id="29_b1p7p"]
 [ext_resource type="Texture2D" uid="uid://d10pghvfk41ip" path="res://assets/sprites/_WallHang.png" id="30_tldob"]
 [ext_resource type="Texture2D" uid="uid://ctpsyxjal6pg6" path="res://assets/sprites/_WallSlide.png" id="31_tj28g"]
+[ext_resource type="AudioStream" uid="uid://bdbc61anjdkss" path="res://assets/sounds/sword_swing.wav" id="32_lgfko"]
 [ext_resource type="Script" path="res://scripts/states/CrouchState.gd" id="36_dd37k"]
 
 [sub_resource type="Animation" id="Animation_ffqkw"]
@@ -774,6 +777,36 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LeftStep")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("24_6l5kl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightStep")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("25_gtn34")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_x60a1"]
 resource_name = "slide"
@@ -1273,6 +1306,7 @@ shape = SubResource("RectangleShape2D_yi8d2")
 disabled = true
 
 [node name="StateDebug" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+visible = false
 offset_left = -32.0
 offset_top = -44.0
 offset_right = 101.0
@@ -1281,6 +1315,14 @@ scale = Vector2(0.480919, 0.480919)
 text = "State: "
 script = ExtResource("27_g3hre")
 state_machine = NodePath("../StateMachine")
+
+[node name="SwordSwing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_lgfko")
+bus = &"SFX"
+
+[node name="LeftStep" type="AudioStreamPlayer2D" parent="."]
+
+[node name="RightStep" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="health_depleted" from="Health" to="StateMachine/Attack" method="_on_health_health_depleted"]
 [connection signal="health_depleted" from="Health" to="StateMachine/Ground" method="_on_health_health_depleted"]
