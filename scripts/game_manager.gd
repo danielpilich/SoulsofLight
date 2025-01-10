@@ -6,8 +6,11 @@ extends Node
 @onready var enemy_spawner_2: Marker2D = $"../Enemy/EnemySpawner2"
 @onready var enemies_left: Label = $"../CanvasLayer/EnemiesLeft"
 @onready var next_wave: Label = $"../CanvasLayer/NextWave"
+@onready var player: CharacterBody2D = $"../Player"
+
 
 const SLIME = preload("res://scenes/Enemies/slime.tscn")
+const BEE = preload("res://scenes/Enemies/small_bee.tscn")
 
 var enemy_instantiate = []
 var enemy_count = 10
@@ -28,10 +31,15 @@ func _on_timer_timeout():
 
 func generate_enemies():
 	for i in enemy_count:
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(2).timeout
 		if enemy_instantiate[i] == null:
-			enemy_instantiate[i] = SLIME.instantiate()
+			var random_enemy = randi() % 2
+			if random_enemy == 1:
+				enemy_instantiate[i] = SLIME.instantiate()
+			else:
+				enemy_instantiate[i] = BEE.instantiate()
 			enemy_instantiate[i].add_to_group("Enemy")
+			enemy_instantiate[i].player = player
 			var random_number = randi() % 2
 			print(random_number)
 			if(random_number == 1):

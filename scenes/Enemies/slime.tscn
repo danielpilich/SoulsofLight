@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://n7otpxjkcupp"]
+[gd_scene load_steps=26 format=3 uid="uid://n7otpxjkcupp"]
 
 [ext_resource type="Texture2D" uid="uid://qxce1pcexf6f" path="res://assets/sprites/slime_green.png" id="1_b2g46"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_xypll"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/states/EnemyWalk.gd" id="7_x6jts"]
 [ext_resource type="Script" path="res://scripts/states/EnemyHit.gd" id="8_gtbs7"]
 [ext_resource type="Script" path="res://scripts/states/EnemyDeath.gd" id="9_3hgg7"]
+[ext_resource type="Script" path="res://scripts/overlap_barrier.gd" id="11_o2mkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_witvc"]
 size = Vector2(14, 16)
@@ -260,9 +261,12 @@ states/walk/node = SubResource("AnimationNodeAnimation_senry")
 states/walk/position = Vector2(414, 100)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_kt2lw"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_xp34g"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_1dm6m")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_31npi"]
+
 [node name="Slime" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(2, 2)
-collision_layer = 2
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_xypll")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
@@ -346,6 +350,16 @@ script = ExtResource("9_3hgg7")
 animation_tree = NodePath("../../AnimationTree")
 hitbox_collision = NodePath("../../HitBox/CollisionShape2D")
 can_move = false
+
+[node name="Overlap_Barrier" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("11_o2mkw")
+avoid_distance = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overlap_Barrier"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource("CircleShape2D_31npi")
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
