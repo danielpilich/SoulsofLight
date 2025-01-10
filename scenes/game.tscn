@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=29 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://n7otpxjkcupp" path="res://scenes/Enemies/slime.tscn" id="14_2mk56"]
 [ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="14_rsun0"]
 [ext_resource type="PackedScene" uid="uid://bqcvttgtgnrs0" path="res://scenes/Enemies/slime_purple.tscn" id="15_w3nf5"]
+[ext_resource type="AudioStream" uid="uid://dt1ebwn4twfs3" path="res://assets/music/game_music.mp3" id="17_lfcr3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1o82"]
 texture = ExtResource("4_jh5fu")
@@ -2638,5 +2639,10 @@ position = Vector2(3112, -232)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_lfcr3")
+autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]

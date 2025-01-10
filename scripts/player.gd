@@ -25,6 +25,7 @@ var collision_crouch_size: Vector2 = Vector2(14, 23)
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var hurtbox: CollisionShape2D = $HurtBox/CollisionShape2D
 @onready var hit_box: CollisionShape2D = $HitBox/CollisionShape2D
+@onready var sword_swing: AudioStreamPlayer2D = $SwordSwing
 
 
 func _ready():
