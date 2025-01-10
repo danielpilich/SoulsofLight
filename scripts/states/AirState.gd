@@ -5,6 +5,8 @@ class_name AirState
 @export var double_jump_velocity: float = -300
 @export var double_jump_unlocked: bool = false
 
+@onready var jump_sound: AudioStreamPlayer2D = $"../../JumpSound"
+
 var has_double_jumped: bool = false
 var is_attacking: bool = false
 
@@ -31,6 +33,8 @@ func Enter():
 	is_attacking = false
 
 func Exit():
+	if playback.get_current_node() == "fall":
+		jump_sound.play()
 	has_double_jumped = false
 
 func double_jump():

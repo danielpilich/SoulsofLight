@@ -10,7 +10,7 @@ class_name GroundState
 
 func Update(_delta: float):
 	if character and Input.is_action_just_pressed("jump"):
-			jump()
+		jump()
 	
 	if !character.is_on_floor() and !character.is_on_wall():
 		playback.travel("fall")
