@@ -830,17 +830,28 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("24_es5sy")
-}, {
-"end_offset": 0.0,
+"end_offset": 0.151228,
 "start_offset": 0.0,
 "stream": ExtResource("24_es5sy")
 }],
-"times": PackedFloat32Array(0.1, 0.6)
+"times": PackedFloat32Array(0.1)
 }
 tracks/4/use_blend = false
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StepsSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.151228,
+"start_offset": 0.0,
+"stream": ExtResource("24_es5sy")
+}],
+"times": PackedFloat32Array(0.6)
+}
+tracks/5/use_blend = false
 
 [sub_resource type="Animation" id="Animation_x60a1"]
 resource_name = "slide"
@@ -1351,9 +1362,11 @@ script = ExtResource("27_g3hre")
 state_machine = NodePath("../StateMachine")
 
 [node name="SwordSwingSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
 bus = &"SFX"
 
 [node name="StepsSound" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("34_ul26y")

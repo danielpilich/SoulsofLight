@@ -9694,28 +9694,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 character = NodePath("../../Player")
 
-[node name="NextWave" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -882.0
-offset_top = 2.0
-offset_right = -842.0
-offset_bottom = 12.0
-grow_horizontal = 0
-scale = Vector2(0.75, 0.75)
-theme_override_fonts/font = ExtResource("14_rsun0")
-theme_override_font_sizes/font_size = 8
-horizontal_alignment = 2
-
 [node name="EnemiesLeft" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -882.0
-offset_top = 10.0
+offset_top = 1.0
 offset_right = -842.0
-offset_bottom = 20.0
+offset_bottom = 11.0
 grow_horizontal = 0
 scale = Vector2(0.75, 0.75)
 theme_override_fonts/font = ExtResource("14_rsun0")
@@ -9730,16 +9716,16 @@ position = Vector2(-1302, -274)
 [node name="EnemySpawner2" type="Marker2D" parent="Enemy"]
 position = Vector2(3202, -278)
 
-[node name="Snail" parent="Enemy" instance=ExtResource("16_po5nd")]
+[node name="Snail" parent="Enemy" groups=["Enemy"] instance=ExtResource("16_po5nd")]
 position = Vector2(899, -13)
 
-[node name="BigBoar" parent="Enemy" instance=ExtResource("17_8n7mf")]
+[node name="BigBoar" parent="Enemy" groups=["Enemy"] instance=ExtResource("17_8n7mf")]
 position = Vector2(3006, 0)
 
-[node name="Snail2" parent="Enemy" instance=ExtResource("16_po5nd")]
+[node name="Snail2" parent="Enemy" groups=["Enemy"] instance=ExtResource("16_po5nd")]
 position = Vector2(-1019, -15)
 
-[node name="Snail3" parent="Enemy" instance=ExtResource("16_po5nd")]
+[node name="Snail3" parent="Enemy" groups=["Enemy"] instance=ExtResource("16_po5nd")]
 position = Vector2(538, -7)
 
 [node name="Timer" type="Timer" parent="."]
