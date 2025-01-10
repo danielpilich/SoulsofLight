@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=29 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ch5v1qxo0hqif" path="res://scenes/healthbar.tscn" id="11_u0bvi"]
 [ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="14_rsun0"]
 [ext_resource type="PackedScene" uid="uid://1fs8hta76cya" path="res://scenes/Enemies/snail.tscn" id="16_po5nd"]
+[ext_resource type="PackedScene" uid="uid://b0wpwtivindvr" path="res://scenes/Enemies/boar_big.tscn" id="17_8n7mf"]
 [ext_resource type="AudioStream" uid="uid://dt1ebwn4twfs3" path="res://assets/music/game_music.mp3" id="18_d5vaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1o82"]
@@ -2642,5 +2643,8 @@ autostart = true
 
 [node name="Snail" parent="." instance=ExtResource("16_po5nd")]
 position = Vector2(899, -13)
+
+[node name="Boar_Big" parent="." instance=ExtResource("17_8n7mf")]
+position = Vector2(3006, 0)
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
