@@ -1362,14 +1362,23 @@ script = ExtResource("27_g3hre")
 state_machine = NodePath("../StateMachine")
 
 [node name="SwordSwingSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -14.5)
 volume_db = -5.0
+attenuation = 1e-05
+panning_strength = 0.0
 bus = &"SFX"
 
 [node name="StepsSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -14.5)
+attenuation = 1e-05
+panning_strength = 0.0
 bus = &"SFX"
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -14.5)
 stream = ExtResource("34_ul26y")
+attenuation = 1.03526e-05
+panning_strength = 0.0
 
 [connection signal="health_depleted" from="Health" to="StateMachine/Attack" method="_on_health_health_depleted"]
 [connection signal="health_depleted" from="Health" to="StateMachine/Ground" method="_on_health_health_depleted"]
