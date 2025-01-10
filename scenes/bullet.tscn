@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cofndtlvg8qg0"]
+
+[ext_resource type="Texture2D" uid="uid://ccysncm3tqqao" path="res://assets/sprites/Bee-stinger-dark.png" id="1_fe4wo"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_tovd8"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="2_0n2eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln1ua"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob4ki"]
+size = Vector2(4, 6)
+
+[node name="bullet" type="RigidBody2D"]
+collision_layer = 2
+script = ExtResource("1_tovd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fe4wo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ln1ua")
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_0n2eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_ob4ki")

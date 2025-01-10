@@ -12,8 +12,6 @@ var direction: Vector2 = Vector2.LEFT
 var is_dead: bool = false
 
 @onready var animation_tree = $AnimationTree
-@onready var ray_cast_right: RayCast2D = $RayCastRight
-@onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var ground_ray: RayCast2D = $GroundRay
@@ -54,26 +52,9 @@ func _physics_process(delta):
 				velocity.y = 0
 			else:
 				velocity.y = position_error * 150.0 * delta
-			
-			#var target_velocity_y = (desired_y - global_position.y) * 10.0
-			#velocity.y = lerp(velocity.y, target_velocity_y, 0.1)
-			
-			#if global_position.y < desired_y: #move down
-				#velocity.y += speed * delta
-			#elif global_position.y > desired_y: #move up
-				#velocity.y -= speed * delta
-			#else:
-				#velocity.y = move_toward(velocity.y, 0, speed * delta)
 		else:
 			velocity.y += gravity * delta #no ground, move down
 	
-	
-	
-	#if ray_cast_right.is_colliding():
-		#direction.x = -1
-	#if ray_cast_left.is_colliding():
-		#direction.x = 1
-
 	if direction.x > 0:
 		sprite_2d.scale.x = -1
 	elif direction.x < 0:
