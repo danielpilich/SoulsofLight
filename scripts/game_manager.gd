@@ -20,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	enemies_left.text = "Enemies left: " + str(get_tree().get_nodes_in_group("Enemy").size())
-	next_wave.text = "Next wave in:%.f" % timer.time_left
+	next_wave.text = "Next wave in: %.f" % timer.time_left
 
 func _on_timer_timeout():
 	generate_enemies()
