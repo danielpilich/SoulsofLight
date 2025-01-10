@@ -3,10 +3,12 @@ class_name AttackState
 
 @onready var hitbox: CollisionShape2D = $"../../HitBox/CollisionShape2D"
 @onready var timer: Timer = $Timer
+@onready var sword_swing: AudioStreamPlayer2D = $"../../SwordSwing"
 
 var switch: bool = false
 
-func Enter() -> void:
+func Enter() -> void:	
+	sword_swing.play()
 	hitbox.disabled = false
 
 func Exit() -> void:

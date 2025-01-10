@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://c2l1o1mofjbvg"]
+[gd_scene load_steps=85 format=3 uid="uid://c2l1o1mofjbvg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pfmrb"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_rf2eu"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://comko0yik24kj" path="res://assets/sprites/_WallClimb.png" id="29_b1p7p"]
 [ext_resource type="Texture2D" uid="uid://d10pghvfk41ip" path="res://assets/sprites/_WallHang.png" id="30_tldob"]
 [ext_resource type="Texture2D" uid="uid://ctpsyxjal6pg6" path="res://assets/sprites/_WallSlide.png" id="31_tj28g"]
+[ext_resource type="AudioStream" uid="uid://bdbc61anjdkss" path="res://assets/sounds/sword_swing.wav" id="32_lgfko"]
 [ext_resource type="Script" path="res://scripts/states/CrouchState.gd" id="36_dd37k"]
 
 [sub_resource type="Animation" id="Animation_ffqkw"]
@@ -1281,6 +1282,10 @@ scale = Vector2(0.480919, 0.480919)
 text = "State: "
 script = ExtResource("27_g3hre")
 state_machine = NodePath("../StateMachine")
+
+[node name="SwordSwing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_lgfko")
+volume_db = -20.0
 
 [connection signal="health_depleted" from="Health" to="StateMachine/Attack" method="_on_health_health_depleted"]
 [connection signal="health_depleted" from="Health" to="StateMachine/Ground" method="_on_health_health_depleted"]
