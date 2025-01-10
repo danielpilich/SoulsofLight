@@ -402,6 +402,7 @@ collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_bqsjc")
 speed = 6000
+follow_range = 5000.0
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
 script = ExtResource("1_i5380")

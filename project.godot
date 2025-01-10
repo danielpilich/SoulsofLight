@@ -23,6 +23,10 @@ Music="*res://scenes/music.tscn"
 
 project/assembly_name="Souls Of Light"
 
+[editor]
+
+movie_writer/movie_file="D:/Videos/test.avi"
+
 [global_group]
 
 enemies=""
