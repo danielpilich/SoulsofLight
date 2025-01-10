@@ -23,6 +23,8 @@ func _ready():
 
 func _process(delta):
 	enemies_left.text = "Enemies left: " + str(get_tree().get_nodes_in_group("Enemy").size())
+	if Input.is_action_just_pressed("menu"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_timer_timeout():
 	generate_enemies()

@@ -86,12 +86,17 @@ text = "              MOVE:
 
 Left:	A/Left Arrow
 Right: D/Right Arrow
-Jump: W/space/Up Arrow
+Jump: W/Space/Up Arrow
 Crouch: S/Down Arrow
 
               FIGHT:
 
-Attack	: LMB/X"
+Attack	: LMB/X
+
+              Menu:
+
+Back to menu: ESC
+"
 
 [node name="ReturnButton" type="Button" parent="MarginContainer/KeybindsMenu"]
 layout_mode = 2
