@@ -1,0 +1,3 @@
+extends Enemy_Walk_State
+
+class_name Bee_Fly_State

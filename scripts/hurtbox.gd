@@ -15,6 +15,7 @@ func _on_area_entered(hitbox: HitBox) -> void:
 	if hitbox != null:
 		current_hitbox = hitbox
 		apply_damage()
+		print(health.get_health())
 
 func _on_area_exited(hitbox: HitBox):
 	if hitbox == current_hitbox:
