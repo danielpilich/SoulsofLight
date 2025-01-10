@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @export var speed = 3000
 @export var jump_velocity = -350.0
+@export var follow_range: float = 500
+@export var stop_distance: float = 0
+@export var player: CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.LEFT
@@ -21,7 +24,22 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	
+	if player:
+		var distance_to_player = global_position.distance_to(player.global_position)
+		
+		if distance_to_player <= follow_range:
+			var horizontal_distance = abs(player.global_position.x - global_position.x)
+			if horizontal_distance > stop_distance:
+				if player.global_position.x > global_position.x:
+					direction.x = 1
+				elif player.global_position.x < global_position.x:
+					direction.x = -1
+			else:
+				direction.x = 0
+		else:
+			direction.x = 0
+	
 	# Handle jump.
 	if (ray_cast_right.is_colliding() or ray_cast_left.is_colliding()) and is_on_floor():
 		velocity.y = jump_velocity
