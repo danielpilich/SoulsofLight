@@ -20,7 +20,6 @@ func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta):
-	
 	if is_dead:
 		if not is_on_floor():
 			velocity.y += gravity * delta

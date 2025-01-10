@@ -359,7 +359,6 @@ target_position = Vector2(-17, 0)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("5_e0duo")
-damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 visible = false

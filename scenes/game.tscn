@@ -9704,6 +9704,7 @@ offset_right = -842.0
 offset_bottom = 11.0
 grow_horizontal = 0
 scale = Vector2(0.75, 0.75)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("14_rsun0")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
