@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cteqbe7fk3xmh"]
+[gd_scene load_steps=28 format=3 uid="uid://cteqbe7fk3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://c2l1o1mofjbvg" path="res://scenes/player.tscn" id="1_dgfp1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i7xv7"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://o0ol2gutvxlx" path="res://assets/sprites/map/Back_1_2.png" id="10_dsvo5"]
 [ext_resource type="Texture2D" uid="uid://x843s1bnlxuw" path="res://assets/sprites/map/tree.png" id="11_6m40u"]
 [ext_resource type="PackedScene" uid="uid://ch5v1qxo0hqif" path="res://scenes/healthbar.tscn" id="11_u0bvi"]
-[ext_resource type="PackedScene" uid="uid://n7otpxjkcupp" path="res://scenes/Enemies/slime.tscn" id="14_2mk56"]
 [ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="14_rsun0"]
 [ext_resource type="PackedScene" uid="uid://1fs8hta76cya" path="res://scenes/Enemies/snail.tscn" id="16_po5nd"]
 [ext_resource type="AudioStream" uid="uid://dt1ebwn4twfs3" path="res://assets/music/game_music.mp3" id="18_d5vaj"]
@@ -2628,18 +2627,6 @@ scale = Vector2(0.75, 0.75)
 theme_override_fonts/font = ExtResource("14_rsun0")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
-
-[node name="Slime" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_2mk56")]
-position = Vector2(531, -13)
-collision_layer = 2
-collision_mask = 1
-player = NodePath("../Player")
-
-[node name="Slime2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_2mk56")]
-position = Vector2(531, -57)
-collision_layer = 2
-collision_mask = 1
-player = NodePath("../Player")
 
 [node name="Enemy" type="Node2D" parent="."]
 

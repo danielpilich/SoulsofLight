@@ -9,7 +9,7 @@ extends Node
 @onready var player: CharacterBody2D = $"../Player"
 
 
-const SLIME = preload("res://scenes/Enemies/slime.tscn")
+const BOAR = preload("res://scenes/Enemies/boar_small.tscn")
 const BEE = preload("res://scenes/Enemies/small_bee.tscn")
 
 var enemy_instantiate = []
@@ -35,7 +35,7 @@ func generate_enemies():
 		if enemy_instantiate[i] == null:
 			var random_enemy = randi() % 2
 			if random_enemy == 1:
-				enemy_instantiate[i] = SLIME.instantiate()
+				enemy_instantiate[i] = BOAR.instantiate()
 			else:
 				enemy_instantiate[i] = BEE.instantiate()
 			enemy_instantiate[i].add_to_group("Enemy")

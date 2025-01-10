@@ -405,7 +405,7 @@ speed = 6000
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
 script = ExtResource("1_i5380")
-max_health = 2
+max_health = 1
 hurtbox_collision = NodePath("../HurtBox/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
