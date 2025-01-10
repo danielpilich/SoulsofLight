@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://clyeeh0j3ums8"]
+[gd_scene load_steps=7 format=3 uid="uid://clyeeh0j3ums8"]
 
 [ext_resource type="Texture2D" uid="uid://bhbbxfxkn4yfc" path="res://assets/sprites/map/baner.png" id="1_66xeh"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_ur21i"]
 [ext_resource type="FontFile" uid="uid://f82n7m31omb2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_qckg8"]
+[ext_resource type="FontFile" uid="uid://c30of2ju0448n" path="res://assets/fonts/PixelOperator8.ttf" id="4_jisro"]
+[ext_resource type="AudioStream" uid="uid://bgblcnamv37uu" path="res://assets/music/menu_music.wav" id="5_eldrm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8o5j"]
+bg_color = Color(0, 0, 0, 0.498039)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -30,32 +43,69 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_qckg8")
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
 
-[node name="KeybindsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="KeybindsButton" type="Button" parent="MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_qckg8")
 theme_override_font_sizes/font_size = 32
 text = "KEYBINDS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_qckg8")
 theme_override_font_sizes/font_size = 32
 text = "QUIT"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="KeybindsMenu" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/KeybindsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jisro")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8o5j")
+text = "              MOVE:
+
+Left:	A/Left Arrow
+Right: D/Right Arrow
+Jump: W/space/Up Arrow
+Crouch: S/Down Arrow
+
+              FIGHT:
+
+Attack	: LMB/X"
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/KeybindsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_qckg8")
+theme_override_font_sizes/font_size = 32
+text = "RETURN"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_eldrm")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="MarginContainer/MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenu/KeybindsButton" to="." method="_on_keybinds_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/KeybindsMenu/ReturnButton" to="." method="_on_return_button_pressed"]

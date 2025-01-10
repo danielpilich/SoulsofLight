@@ -1285,7 +1285,7 @@ state_machine = NodePath("../StateMachine")
 
 [node name="SwordSwing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("32_lgfko")
-volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="health_depleted" from="Health" to="StateMachine/Attack" method="_on_health_health_depleted"]
 [connection signal="health_depleted" from="Health" to="StateMachine/Ground" method="_on_health_health_depleted"]
