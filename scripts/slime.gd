@@ -60,6 +60,3 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 
 	move_and_slide()
-
-func overlap_protection():
-	pass
