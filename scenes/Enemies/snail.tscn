@@ -322,7 +322,7 @@ script = ExtResource("1_3vd6c")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox_collision")]
 script = ExtResource("1_cltra")
-max_health = 5
+max_health = 2
 hurtbox_collision = NodePath("../HurtBox/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
