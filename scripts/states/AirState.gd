@@ -6,28 +6,35 @@ class_name AirState
 @export var double_jump_unlocked: bool = false
 
 var has_double_jumped: bool = false
+var is_attacking: bool = false
 
 func Update(_delta: float):
-	if player.is_on_floor():
+	if character.is_on_floor():
 		emit_signal("Transitioned", self, "Ground")
 	
-	if !player.is_on_floor():
-		if player.velocity.y > 0:
+	if Input.is_action_just_pressed("attack"):
+		is_attacking = true
+		playback.travel("attack2")
+		emit_signal("Transitioned", self, "attack")
+	
+	if !character.is_on_floor() and !is_attacking:
+		if character.velocity.y > 0:
 			playback.travel("fall")
-		elif player.velocity.y < 0:
+		elif character.velocity.y < 0:
 			playback.travel("jump")
 	
 	if Input.is_action_just_pressed("jump") and !has_double_jumped and double_jump_unlocked:
 		double_jump()
 
 func Enter():
-	player.is_crouched = false
+	character.is_crouched = false
+	is_attacking = false
 
 func Exit():
 	has_double_jumped = false
 
 func double_jump():
-	player.velocity.y = double_jump_velocity
+	character.velocity.y = double_jump_velocity
 	playback.travel("jump")
 	has_double_jumped = true
 

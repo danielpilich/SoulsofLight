@@ -35,9 +35,9 @@ func generate_enemies():
 			var random_number = randi() % 2
 			print(random_number)
 			if(random_number == 1):
-				enemy_instantiate[i].direction = 1
+				enemy_instantiate[i].direction.x = 1
 				enemy_instantiate[i].global_position = enemy_spawner_1.global_position
 			else:				
-				enemy_instantiate[i].direction = -1
+				enemy_instantiate[i].direction.x = -1
 				enemy_instantiate[i].global_position = enemy_spawner_2.global_position
 			add_child(enemy_instantiate[i])

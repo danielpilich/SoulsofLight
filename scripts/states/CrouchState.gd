@@ -2,7 +2,7 @@ extends State
 class_name CrouchState
 
 func Enter():
-	player.is_crouched = true
+	character.is_crouched = true
 	playback.travel("crouch")
 
 func Update(_delta: float):

@@ -15,7 +15,7 @@ func _ready() -> void:
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
 			#states.append(child)
-			child.player = character
+			child.character = character
 			child.playback = animation_tree["parameters/playback"]
 		
 		if initial_state:

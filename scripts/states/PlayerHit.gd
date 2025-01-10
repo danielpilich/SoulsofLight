@@ -8,7 +8,7 @@ func Enter() -> void:
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hit":
-		if player.is_on_floor():
+		if character.is_on_floor():
 			emit_signal("Transitioned", self, "ground")
 		else:
 			emit_signal("Transitioned", self, "air")

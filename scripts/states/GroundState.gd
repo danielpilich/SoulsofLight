@@ -8,12 +8,11 @@ class_name GroundState
 
 @export var jump_velocity = -300.0
 
-
 func Update(_delta: float):
-	if player and Input.is_action_just_pressed("jump"):
+	if character and Input.is_action_just_pressed("jump"):
 			jump()
 	
-	if !player.is_on_floor() and !player.is_on_wall():
+	if !character.is_on_floor() and !character.is_on_wall():
 		playback.travel("fall")
 		emit_signal("Transitioned", self, "Air")
 	
@@ -25,7 +24,7 @@ func Update(_delta: float):
 
 
 func jump():
-	player.velocity.y = jump_velocity
+	character.velocity.y = jump_velocity
 	playback.travel("jump")
 	emit_signal("Transitioned", self, "air")
 
@@ -34,8 +33,8 @@ func attack():
 	emit_signal("Transitioned", self, "attack")
 
 func Enter():
-	if player:
-		player.is_crouched = false
+	if character:
+		character.is_crouched = false
 	if playback:
 		playback.travel("move")
 
